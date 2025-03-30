@@ -3,6 +3,8 @@ from fastapi.params import Body
 from pydantic import BaseModel
 app = FastAPI()
 
+# creating a model by pydantic
+# pydantic is a data validation 
 class Post(BaseModel):
     title:str
     content:str
