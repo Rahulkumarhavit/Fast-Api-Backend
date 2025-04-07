@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Response , status
 from fastapi.params import Body
 from pydantic import BaseModel
 from typing import Optional
@@ -28,6 +28,10 @@ async def create_posts(new_post:Post):
 async def get_latest_post():
     return {"post_id":1,"title":"latest post"}
 
-@app.get("/post/{id}")
-async def get_post(id:int):
+@app.get("/posts/{id}")
+async def get_post(id:int,response:Response):
+
+    if id > 5:
+        response.status_code = 404
+        return {"message":"post not found"}
     return {"post_id":id}
