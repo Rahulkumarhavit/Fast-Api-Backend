@@ -42,3 +42,4 @@ async def get_post(id:int,response:Response):
 async def delete_post(id:int):
     # delete post logic
     return Response(status_code=status.HTTP_204_NO_CONTENT)
+
